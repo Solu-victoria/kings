@@ -143,6 +143,7 @@ body {
                         <div class="file-upload">
                             <span>Choose File</span>
                                 <input name="receipt" type="file" id="transactionScreenshot" accept="image/*">
+                            <x-input-error :messages="$errors->get('receipt')" class="mt-2" />
                         </div>
                         </div>
                         <button type="submit" class="btn btn-primary mt-2">Confirm Payment</button>
