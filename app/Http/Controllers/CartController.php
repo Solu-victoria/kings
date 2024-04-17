@@ -18,7 +18,7 @@ class CartController extends Controller
     public function store(Request $request)
     {
        $validatedData = $request->all();
-       $foodExistsInCart = Cart_item::where('food_id', $request->food_id)->first();
+       $foodExistsInCart = Cart_item::where('food_id', $request->food_id)->where('user_id', Auth::user()->id)->first();
        if ($foodExistsInCart) {
         return redirect()->back()->with('message_cart', 'You have already added this food item to cart!' );
        }
